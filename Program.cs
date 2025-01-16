@@ -12,7 +12,20 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// add config CORS to allow access WebAPI - Thêm cấu hình CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAllOrigins", policy =>
+    {
+        policy.AllowAnyOrigin()  // Cho phép tất cả origin
+              .AllowAnyMethod()  // Cho phép tất cả HTTP methods (GET, POST, PUT, DELETE)
+              .AllowAnyHeader(); // Cho phép tất cả headers
+    });
+});
+
 var app = builder.Build();
+// allow CORS
+app.UseCors("AllowAllOrigins");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
