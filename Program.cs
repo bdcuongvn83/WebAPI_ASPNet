@@ -23,6 +23,9 @@ builder.Services.AddCors(options =>
     });
 });
 
+// Add services to the container.
+builder.Services.AddRazorPages();
+
 var app = builder.Build();
 // allow CORS
 app.UseCors("AllowAllOrigins");
@@ -35,6 +38,11 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+//TODO muon su dung page
+app.UseRouting();
+app.MapRazorPages(); // This maps Razor Pages to the URL routing
+
 
 app.UseAuthorization();
 

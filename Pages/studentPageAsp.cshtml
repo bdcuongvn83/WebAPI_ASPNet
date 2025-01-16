@@ -1,0 +1,74 @@
+﻿@page
+@model WebAPIPortal.Pages.StudentPageModel
+@{
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Call Web API from Web Forms</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Products</h1>
+    <div>
+        <button id="btnGetProducts">Get Products</button>
+        <button id="btnAddProduct">Add Product</button>
+    </div>
+    <div id="productList"></div>
+
+    <script>
+        // URL của Web API
+        const apiBaseUrl = "https://localhost:7168/api/Students";
+
+        // Lấy danh sách sản phẩm
+        $("#btnGetProducts").click(function () {
+            $.ajax({
+                url: apiBaseUrl,
+                type: "GET",
+                success: function (data) {
+                    let productHtml = "<ul>";
+                    data.forEach(product => {
+                        productHtml += `<li>${product.id + ':' +  product.firstMidName + ' ' + product.lastName + ' , enrol:' + product.enrollmentDate}</li>`;
+                    });
+                    productHtml += "</ul>";
+                    $("#productList").html(productHtml);
+                },
+                error: function (xhr, status, error) {
+                    alert("Error: " + error);
+                }
+            });
+        });
+
+        // Thêm sản phẩm mới
+        $("#btnAddProduct").click(function () {
+            // Prompt the user to enter values for firstname and lastName
+            const firstNameParam = prompt('Enter First Name:');
+            const lastNameParam = prompt('Enter Last Name:');
+            const enrolDateParam = prompt('Enter enrolDate Name dd-mm-yyyy:');
+
+            // Create a product object using the input values
+            let newProduct = {
+                firstMidName: firstNameParam,
+                lastName: lastNameParam,
+                enrollmentDate: enrolDateParam
+            };
+
+            //const newProduct = prompt("Enter student name:");
+            if (newProduct) {
+                $.ajax({
+                    url: apiBaseUrl,
+                    type: "POST",
+                    contentType: "application/json",
+                    data: JSON.stringify(newProduct),
+                    success: function (data) {
+                        alert(data);
+                    },
+                    error: function (xhr, status, error) {
+                        alert("Error: " + error);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
