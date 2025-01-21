@@ -63,7 +63,7 @@ https://localhost:7168/swagger/index.html
 
 ![image](https://github.com/user-attachments/assets/795c49c1-ed6b-48d6-a429-12f64b8ca9fc)
 
-![image](https://github.com/user-attachments/assets/4ba6cd18-969a-4924-9cad-7dc639577453)
+
 
 ► 6. Open browser, test with url:  
 URL: ASP.net (https://localhost:7168/studentPageAsp)
