@@ -9,8 +9,13 @@
 
 https://github.com/user-attachments/assets/62ea88f1-ac6d-4b52-83af-3b5e1a918ca9
 
+
 Refer tutorial like below url:
 https://howtodoinjava.com/maven/multi-module-project-eclipse/  
+
+**Demo and guide to publish WebAPI to Azure:**
+
+https://github.com/bdcuongvn83/WebAPI_ASPNet/wiki/WebAPI_ASPNet_ConnectAzure
 
 # The features of this software include:  
 ### Functions: 
