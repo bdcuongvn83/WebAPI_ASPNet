@@ -26,7 +26,6 @@ https://github.com/bdcuongvn83/WebAPI_ASPNet/wiki/WebAPI_ASPNet_ConnectAzure
 ✔ Implementing WebAPI built using ASP.net EF core.  
 ✔ Handling HTTP Request(Post, GET, PUT, DELETE)
 ✔ Database  SQL server 
-✔ Using Maven for build project  
 ✔ Test webAPI with 2 simple web page such as HTML page, ASP.net page  
 
 # ERD structure:  
